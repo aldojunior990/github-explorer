@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50vw;
+  width: 60vw;
   margin: 3rem auto;
   h1 {
     color: var(--text-title);
@@ -14,7 +14,7 @@ export const Container = styled.div`
       border: 0;
       background-color: var(--components-background);
       height: 4rem;
-      width: 60%;
+      width: 70%;
       border-radius: 5px;
       &::placeholder {
         padding: 1rem;
@@ -24,7 +24,7 @@ export const Container = styled.div`
 
     button {
       height: 4rem;
-      width: 40%;
+      width: 30%;
       background: var(--green);
       color: #fff;
       font-weight: 700;
