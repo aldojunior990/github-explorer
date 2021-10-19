@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 60vw;
+  width: 50vw;
   margin: 3rem auto;
   h1 {
     color: var(--text-title);

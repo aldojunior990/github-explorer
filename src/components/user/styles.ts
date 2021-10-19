@@ -37,7 +37,7 @@ export const Container = styled.div`
     }
 
     button {
-      margin-top: -7rem;
+      margin-top: -10rem;
       color: var(--text-subtitle);
       font-weight: 400;
       padding: 1rem;
