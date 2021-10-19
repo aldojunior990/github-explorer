@@ -1,9 +1,14 @@
 import React from "react";
 import { useRepository } from "../../hooks/useRepository";
+import { RepositoryList } from "../repositoryList";
 import { Container } from "./styles";
 
 export function User() {
-  const { dataRepo } = useRepository();
+  const { dataRepo, setNextPage } = useRepository();
+
+  function handleClickButton() {
+    setNextPage(false);
+  }
 
   return (
     <Container>
@@ -15,7 +20,7 @@ export function User() {
             <p>{dataRepo.bio}</p>
           </div>
         </nav>
-        <button> voltar </button>
+        <button onClick={handleClickButton}> voltar </button>
       </nav>
 
       <nav className="stats">
@@ -34,6 +39,8 @@ export function User() {
           </div>
         </nav>
       </nav>
+
+      <RepositoryList />
     </Container>
   );
 }

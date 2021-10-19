@@ -10,6 +10,13 @@ import { toast } from "react-toastify";
 
 import { api } from "../services/api";
 
+interface RepoListProps {
+  name: string;
+  html_url: string;
+  created_at: number;
+  id: number;
+}
+
 interface DataRepoProps {
   avatar_url: string;
   repos_url: string;
@@ -26,6 +33,9 @@ interface RepoContextData {
   setdataRepo: (value: DataRepoProps) => void;
   search: string;
   setSearch: (value: string) => void;
+  nextPage: boolean;
+  repoList: RepoListProps[];
+  setNextPage: (value: boolean) => void;
 }
 
 interface RepoProviderProps {
@@ -38,36 +48,63 @@ export const RepoContext = createContext<RepoContextData>(
 
 export function RepoProvider({ children }: RepoProviderProps) {
   const [dataRepo, setdataRepo] = useState<DataRepoProps>();
-  const [error, setError] = useState("");
   const [search, setSearch] = useState("");
+  const [repoList, setRepoList] = useState<RepoListProps[]>([]);
+  const [nextPage, setNextPage] = useState(false);
 
-  console.log(dataRepo);
+  function requestDataRepo() {
+    api
+      .get<DataRepoProps>(`${search}`)
+      .then((response) => {
+        setdataRepo({
+          login: response.data.login,
+          id: response.data.id,
+          avatar_url: response.data.avatar_url,
+          repos_url: response.data.repos_url,
+          followers: response.data.followers,
+          bio: response.data.bio,
+          following: response.data.following,
+          public_repos: response.data.public_repos,
+        });
+        setSearch("");
+        setNextPage(true);
+      })
+      .catch((err) => {});
+  }
+
+  function requestRepositoryList() {
+    api
+      .get<RepoListProps[]>(`${search}/repos`)
+      .then((response) => {
+        setRepoList(response.data);
+      })
+      .catch((err) => {
+        setRepoList([]);
+      });
+  }
 
   useEffect(() => {
     if (search !== "") {
-      api
-        .get<DataRepoProps>(`${search}`)
-        .then((response) =>
-          setdataRepo({
-            login: response.data.login,
-            id: response.data.id,
-            avatar_url: response.data.avatar_url,
-            repos_url: response.data.repos_url,
-            followers: response.data.followers,
-            bio: response.data.bio,
-            following: response.data.following,
-            public_repos: response.data.public_repos,
-          })
-        )
-        .catch((_err) => {
-          setError("erro");
-          toast.error("Este usuario não existe");
-        });
+      requestDataRepo();
+      requestRepositoryList();
     }
   }, [search]);
 
+  console.log(dataRepo);
+  console.log(repoList);
+
   return (
-    <RepoContext.Provider value={{ search, setSearch, setdataRepo, dataRepo }}>
+    <RepoContext.Provider
+      value={{
+        search,
+        setSearch,
+        setdataRepo,
+        dataRepo,
+        repoList,
+        nextPage,
+        setNextPage,
+      }}
+    >
       {children}
     </RepoContext.Provider>
   );

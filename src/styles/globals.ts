@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
      background-image: url("../../public/Github.png");
      background: var(--color-background);
    
+     
   }
 
   :root{
