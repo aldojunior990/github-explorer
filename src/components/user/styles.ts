@@ -2,13 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 60vw;
-  margin: 3rem auto;
-
+  margin: 2rem auto;
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     img {
       border-radius: 100px;
       width: 8rem;
@@ -22,7 +20,7 @@ export const Container = styled.div`
         margin-left: 1.5rem;
 
         h2 {
-          font-size: 2rem;
+          font-size: 1.8rem;
           font-weight: 700;
           color: var(--text-title);
         }

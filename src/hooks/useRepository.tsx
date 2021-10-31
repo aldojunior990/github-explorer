@@ -28,6 +28,12 @@ interface DataRepoProps {
   public_repos: number;
 }
 
+interface UserListProps {
+  avatar_url: string;
+  login: string;
+  id: number;
+}
+
 interface RepoContextData {
   dataRepo: DataRepoProps;
   setdataRepo: (value: DataRepoProps) => void;
@@ -35,6 +41,7 @@ interface RepoContextData {
   setSearch: (value: string) => void;
   nextPage: boolean;
   repoList: RepoListProps[];
+  userList: UserListProps[];
   setNextPage: (value: boolean) => void;
 }
 
@@ -50,9 +57,10 @@ export function RepoProvider({ children }: RepoProviderProps) {
   const [dataRepo, setdataRepo] = useState<DataRepoProps>();
   const [search, setSearch] = useState("");
   const [repoList, setRepoList] = useState<RepoListProps[]>([]);
+  const [userList, setUserList] = useState<UserListProps[]>([]);
   const [nextPage, setNextPage] = useState(false);
 
-  function requestDataRepo() {
+  async function newtDataRepo() {
     api
       .get<DataRepoProps>(`${search}`)
       .then((response) => {
@@ -66,13 +74,16 @@ export function RepoProvider({ children }: RepoProviderProps) {
           following: response.data.following,
           public_repos: response.data.public_repos,
         });
-        setSearch("");
+
         setNextPage(true);
+        setSearch("");
+
+        newUserList(response.data);
       })
       .catch((err) => {});
   }
 
-  function requestRepositoryList() {
+  function newtRepositoryList() {
     api
       .get<RepoListProps[]>(`${search}/repos`)
       .then((response) => {
@@ -83,15 +94,30 @@ export function RepoProvider({ children }: RepoProviderProps) {
       });
   }
 
+  function newUserList(response: DataRepoProps) {
+    userList.map((user) => {
+      if (user.id === response.id) return;
+    });
+    setUserList([
+      ...userList,
+      {
+        avatar_url: response.avatar_url,
+        login: response.login,
+        id: response.id,
+      },
+    ]);
+  }
+
   useEffect(() => {
     if (search !== "") {
-      requestDataRepo();
-      requestRepositoryList();
+      newtDataRepo();
+      newtRepositoryList();
     }
   }, [search]);
 
   console.log(dataRepo);
   console.log(repoList);
+  console.log(userList);
 
   return (
     <RepoContext.Provider
@@ -103,6 +129,7 @@ export function RepoProvider({ children }: RepoProviderProps) {
         repoList,
         nextPage,
         setNextPage,
+        userList,
       }}
     >
       {children}

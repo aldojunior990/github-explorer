@@ -6,7 +6,7 @@ export const Container = styled.div`
   h1 {
     color: var(--text-title);
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   form {
     margin-top: 2rem;
