@@ -1,7 +1,8 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Search } from "../components/search";
 import { User } from "../components/user";
 import { useRepository } from "../hooks/useRepository";
+import { Container } from "../styles/home";
 
 export default function Home() {
   const { nextPage } = useRepository();
@@ -17,8 +18,16 @@ export default function Home() {
   }, [nextPage]);
 
   if (page === 0) {
-    return <Search />;
+    return (
+      <Container>
+        <Search />
+      </Container>
+    );
   } else {
-    return <User />;
+    return (
+      <Container>
+        <User />
+      </Container>
+    );
   }
 }

@@ -4,8 +4,9 @@ export const Container = styled.ul`
   width: 100%;
   list-style: none;
   margin-top: 3rem;
-  height: 26rem;
+  height: 25rem;
   overflow: auto;
+
   li {
     padding: 0.8rem;
     background: var(--components-background);

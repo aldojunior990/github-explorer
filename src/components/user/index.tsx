@@ -20,7 +20,6 @@ export function User() {
             <p>{dataRepo.bio}</p>
           </div>
         </nav>
-        <button onClick={handleClickButton}> voltar </button>
       </nav>
 
       <nav className="stats">
@@ -41,6 +40,8 @@ export function User() {
       </nav>
 
       <RepositoryList />
+
+      <button onClick={handleClickButton}> voltar </button>
     </Container>
   );
 }

@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     --blue: #5965E0;
   }
 
-  @media (max-width: 1080px) {
+@media (max-width: 1080px) {
   html {
     font-size: 93.75%;
   }
@@ -45,6 +45,12 @@ export const GlobalStyle = createGlobalStyle`
 @media (max-width: 720px) {
   html {
     font-size: 87.5%;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 81.25%;
   }
 }
 

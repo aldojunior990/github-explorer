@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50vw;
+  width: 50%;
   margin: 3rem auto;
+  @media (max-width: 720px) {
+    width: 80%;
+  }
+  @media (max-width: 400px) {
+    width: 90%;
+  }
   h1 {
     color: var(--text-title);
     font-weight: 700;

@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 60vw;
-  margin: 2rem auto;
+  width: 60%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 720px) {
+    width: 80%;
+  }
+  @media (max-width: 400px) {
+    width: 90%;
+  }
   .header {
     display: flex;
     align-items: center;
@@ -33,17 +41,6 @@ export const Container = styled.div`
         }
       }
     }
-
-    button {
-      margin-top: -10rem;
-      color: var(--text-subtitle);
-      font-weight: 400;
-      padding: 1rem;
-      background: transparent;
-      &:hover {
-        filter: brightness(0.8);
-      }
-    }
   }
   .stats {
     display: flex;
@@ -65,6 +62,20 @@ export const Container = styled.div`
           font-size: 1rem;
         }
       }
+    }
+  }
+
+  button {
+    margin: 1rem 0rem auto auto;
+    width: 100%;
+    color: var(--text-subtitle);
+    font-weight: 400;
+    padding: 1rem;
+    background: var(--green);
+    border-radius: 5px;
+    font-weight: 700;
+    &:hover {
+      filter: brightness(0.8);
     }
   }
 `;

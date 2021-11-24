@@ -6,6 +6,12 @@ export const Container = styled.ul`
   width: 50vw;
   list-style: none;
   overflow: auto;
+  @media (max-width: 720px) {
+    width: 80%;
+  }
+  @media (max-width: 400px) {
+    width: 90%;
+  }
   li {
     padding: 0.8rem;
     background: var(--components-background);
