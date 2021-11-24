@@ -4,7 +4,7 @@ export const Container = styled.header`
   padding: 2rem;
   width: 100vw;
   display: flex;
-  img {
+  svg {
     margin: 0 auto;
   }
 `;

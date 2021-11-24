@@ -18,19 +18,19 @@ export const GlobalStyle = createGlobalStyle`
 
   :root{
 
-    --color-background: #F2F2FA;
+    --color-background: #212121;
 
-    --components-background: #fff;
+    --components-background: #323232;
     --yellow: #FCA311;
 
 
-    --text-title:#3A3A3A;
-    --text-subtitle: #737380;
+    --text-title:#F3F0D7;
+    --text-subtitle: #EEEEEE;
     --text-light: #3D3D4D;
     --tex-subtitle-light: #A8A8B3;
 
 
-    --green: #04D361;
+    --green: #4E9F3D;
 
     --black-blue: #14213D;
     --blue: #5965E0;

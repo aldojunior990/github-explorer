@@ -20,7 +20,10 @@ export function UserList() {
 
               <div>
                 <h3>{user.login}</h3>
-                <p>Acessado em:</p>
+                <p>
+                  Acessado em:{" "}
+                  {new Intl.DateTimeFormat("pt-br").format(new Date())}
+                </p>
               </div>
             </nav>
             <button onClick={() => setSearch(user.login)}>

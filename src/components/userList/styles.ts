@@ -35,8 +35,8 @@ export const Container = styled.ul`
         p {
           margin-top: 0.2rem;
           color: var(--text-subtitle);
-          font-weight: 400;
-          font-size: 0.8rem;
+          font-weight: 700;
+          font-size: 0.7rem;
         }
       }
     }

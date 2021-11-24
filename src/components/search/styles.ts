@@ -16,9 +16,13 @@ export const Container = styled.div`
       height: 4rem;
       width: 70%;
       border-radius: 5px;
+      padding: 1rem;
+      color: var(--text-title);
+      font-weight: 600;
       &::placeholder {
-        padding: 1rem;
-        font-weight: 500;
+        padding: 0rem;
+        font-weight: 600;
+        color: var(--text-title);
       }
     }
 
@@ -27,6 +31,7 @@ export const Container = styled.div`
       width: 30%;
       background: var(--green);
       color: #fff;
+      font-size: 0.7rem;
       font-weight: 700;
       border-radius: 5px;
     }

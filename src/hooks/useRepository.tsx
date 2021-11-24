@@ -95,17 +95,23 @@ export function RepoProvider({ children }: RepoProviderProps) {
   }
 
   function newUserList(response: DataRepoProps) {
+    let isExist = false;
+
     userList.map((user) => {
-      if (user.id === response.id) return;
+      if (user.id === response.id) {
+        isExist = true;
+      }
     });
-    setUserList([
-      ...userList,
-      {
-        avatar_url: response.avatar_url,
-        login: response.login,
-        id: response.id,
-      },
-    ]);
+    if (isExist === false) {
+      setUserList([
+        ...userList,
+        {
+          avatar_url: response.avatar_url,
+          login: response.login,
+          id: response.id,
+        },
+      ]);
+    }
   }
 
   useEffect(() => {
