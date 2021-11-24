@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     --yellow: #FCA311;
 
 
-    --text-title:#F3F0D7;
+    --text-title:#FFF;
     --text-subtitle: #EEEEEE;
     --text-light: #3D3D4D;
     --tex-subtitle-light: #A8A8B3;
