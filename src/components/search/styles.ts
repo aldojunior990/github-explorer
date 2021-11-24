@@ -16,12 +16,14 @@ export const Container = styled.div`
   }
   form {
     margin-top: 2rem;
+    display: flex;
+    align-items: center;
     input {
       border: 0;
       background-color: var(--components-background);
       height: 4rem;
       width: 70%;
-      border-radius: 5px;
+      border-radius: 5px 0 0 5px;
       padding: 1rem;
       color: var(--text-title);
       font-weight: 600;
@@ -39,7 +41,7 @@ export const Container = styled.div`
       color: #fff;
       font-size: 0.7rem;
       font-weight: 700;
-      border-radius: 5px;
+      border-radius: 0 5px 5px 0;
     }
   }
 `;
