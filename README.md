@@ -13,6 +13,10 @@ This application uses the GitHub api to search and list the information and repo
    <img height="500px" src=".github/GitHub-explorer .gif">
 </h1>
 
+<h1 align="center" display="flex">
+   <img height="500px" src=".github/tela3.png">
+</h1>
+
 ## :computer: Tecnologias - Technologies
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
